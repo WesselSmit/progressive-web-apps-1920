@@ -5,7 +5,6 @@ module.exports = (req, res) => {
 	const data = JSON.parse(storage.getStoredData())
 
 	if (parseInt(id) > data[0].id) {
-		console.log('404 page not found!')
 		res.render("404", {
 			detail: true
 		})
