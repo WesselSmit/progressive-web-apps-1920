@@ -1,9 +1,6 @@
 # Ignore binary apple file
 **/.DS_Store
 
-# Ignore stored data
-storage/data.json
-
 # Ignore node_modules
 node_modules
 
