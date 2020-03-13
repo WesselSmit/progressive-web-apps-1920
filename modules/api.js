@@ -1,12 +1,14 @@
+require('dotenv').config()
 const fetch = require('node-fetch')
 const cleaner = require('../modules/data.js')
 const storage = require('../modules/storage.js')
 const utils = require('../modules/utils.js')
+const api_key = process.env.api_key
+
 
 const fetcher = {
 	api: (req, res) => {
 		const start_date = utils.createStartYearDate()
-		const api_key = "OC0EStJnYMjAhVtZl88wJjWA75lDZflYUzVmBaJ5"
 		const url = `https://api.nasa.gov/planetary/apod?api_key=${api_key}&start_date=${start_date}`
 		const necessaryProperties = ['date', 'hdurl', 'title', 'explanation', 'copyright', 'media_type']
 
