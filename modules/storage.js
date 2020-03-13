@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const storage = {
+module.exports = storage = {
 	checkIfFileExists: () => (fs.existsSync('./storage/data.json')) ? true : false,
 	getStoredData: () => fs.readFileSync('./storage/data.json', {
 		encoding: 'utf8'
@@ -10,6 +10,3 @@ const storage = {
 		return data
 	}
 }
-
-
-module.exports = storage

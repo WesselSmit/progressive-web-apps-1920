@@ -1,8 +1,7 @@
-const utils = {
+module.exports = utils = {
 	orderData: data => data.reverse(),
 	checkDates: data => {
 		const lastDataDate = data[0].date
-
 		const date = utils.createYYYYMMDDobj()
 		const currentDate = utils.joinString('-', date.currentYear, utils.prefixZero(date.currentMonth), utils.prefixZero(date.currentDay))
 		return utils.compareValues(lastDataDate, currentDate)
@@ -28,5 +27,3 @@ const utils = {
 		return utils.joinString('-', year, '01', '01')
 	}
 }
-
-module.exports = utils

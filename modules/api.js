@@ -5,7 +5,7 @@ const storage = require('../modules/storage.js')
 const utils = require('../modules/utils.js')
 
 
-const fetcher = {
+module.exports = fetcher = {
 	api: (req, res) => {
 		const start_date = utils.createStartYearDate()
 		const api_key = process.env.api_key
@@ -24,5 +24,3 @@ const fetcher = {
 			.catch(err => console.log(`Fetch error: ${err}`))
 	}
 }
-
-module.exports = fetcher
