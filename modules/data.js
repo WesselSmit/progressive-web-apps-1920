@@ -1,16 +1,22 @@
-const cleanData = (data, properties) => {
+module.exports = data => {
+	data = deleteRedundantProps(data)
+	data = filterDataMedia_types(data)
+	data = copyrightGoodDefault(data)
+	data = IDgenerator(data)
+	return data
+}
+
+function deleteRedundantProps(data) {
+	const necessaryProperties = ['date', 'hdurl', 'title', 'explanation', 'copyright', 'media_type']
 	data.map(item => {
 		Object.keys(item).map(prop => {
-			if (!properties.includes(prop)) {
+			if (!necessaryProperties.includes(prop)) {
 				delete item[prop]
 			}
 		})
 	})
-	data = filterDataMedia_types(data)
-	data = copyrightGoodDefault(data)
-	return IDgenerator(data)
+	return data
 }
-
 
 function filterDataMedia_types(data) {
 	return data.filter(item => item.media_type === 'image')
@@ -32,5 +38,3 @@ function IDgenerator(data) {
 	})
 	return data
 }
-
-module.exports = cleanData
