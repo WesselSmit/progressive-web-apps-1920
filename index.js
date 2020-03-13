@@ -1,4 +1,5 @@
 require('dotenv').config()
+const port = process.env.PORT || 3000
 const express = require('express')
 const storage = require('./modules/storage.js')
 const fetcher = require('./modules/api.js')
@@ -12,9 +13,6 @@ app.use(express.static('static'))
 //Set template engine and path to template folder
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-
-
-const port = process.env.PORT || 3000
 
 app.listen(port, () => console.log(`App now listening on port ${port}`))
 
