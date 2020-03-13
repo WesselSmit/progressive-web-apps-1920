@@ -1,5 +1,5 @@
 # Table of Contents
-* [Demo](https://pacific-inlet-64126.herokuapp.com/)
+* [Demo](https://nasa-astronomy-pictures.herokuapp.com/)
 * [Assignment](#assignment)
 * [Goal](#goal)
 * [Install-Notes](#install-notes)
