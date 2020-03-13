@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const storage = require('./modules/storage.js')
 const fetcher = require('./modules/api.js')

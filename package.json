@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/WesselSmit/progressive-web-apps-1920#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "node-fetch": "^2.6.0"
