@@ -13,7 +13,9 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 
-app.listen(3000, () => console.log(`App now listening on port 3000!`))
+const port = process.env.PORT || 3000
+
+app.listen(port, () => console.log(`App now listening on port ${port}`))
 
 
 //Serve index page
