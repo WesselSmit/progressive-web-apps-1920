@@ -14,8 +14,6 @@ app.use(express.static('static'))
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.listen(port, () => console.log(`App now listening on port ${port}`))
-
 
 //Serve index page
 app.get('/', (req, res) => {
@@ -59,3 +57,5 @@ app.get('/*', (req, res) => {
 	console.log('404 page not found!')
 	res.render("404")
 })
+
+app.listen(port, () => console.log(`App now listening on port ${port}`))
