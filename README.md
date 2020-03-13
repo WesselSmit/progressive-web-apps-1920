@@ -124,4 +124,4 @@ The data contains no empty values, but data objects only contain the `copyright`
 
 I used this codepen as a basis for the "loading" animation.
 
-# [License](https://github.com/WesselSmit/progressive-weba-apps-1920/blob/master/LICENSE)
+# [License](https://github.com/WesselSmit/progressive-web-apps-1920/blob/master/LICENSE)
