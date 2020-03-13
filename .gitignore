@@ -2,7 +2,7 @@
 **/.DS_Store
 
 # Ignore stored data
-storage
+storage/data.json
 
 # Ignore node_modules
 node_modules
