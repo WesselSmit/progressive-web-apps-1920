@@ -1,0 +1,37 @@
+#actions {
+	margin: 0px auto;
+	width: fit-content;
+}
+
+#filters {
+	font-family: var(--normal-font);
+	width: fit-content;
+	height: 20px;
+	display: inline-block;
+	margin: 10px 50px 20px 0px;
+}
+
+#filters label {
+	cursor: pointer;
+	padding-bottom: 3px;
+}
+
+#filters label:nth-of-type(2),
+#filters label:last-of-type {
+	margin-left: 10px;
+}
+
+#filters input {
+	position: absolute;
+	left: -9999px;
+}
+
+#filters input:checked+label {
+	border-bottom: 4px solid var(--highlight-color);
+	z-index: 999;
+}
+
+.filtered {
+	position: absolute;
+	left: -9999px;
+}

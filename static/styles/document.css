@@ -1,0 +1,14 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body,
+h1,
+p {
+	margin: 0px;
+}
+
+main {
+	height: 100vh;
+	overflow-y: hidden;
+}
