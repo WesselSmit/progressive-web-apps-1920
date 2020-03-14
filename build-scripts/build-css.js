@@ -2,8 +2,10 @@ const {
 	src,
 	dest
 } = require('gulp')
-const concat = require('gulp-concat')
+const cssImport = require('gulp-cssimport')
+const rename = require('gulp-rename')
 
-return src([__dirname + '/../static/styles.css', __dirname + '/../static/styles/*.css'])
-	.pipe(concat('styles.css'))
-	.pipe(dest(__dirname + '/../static/bundled/'))
+return src([__dirname + '/../static/styles/main.css'])
+	.pipe(cssImport())
+	.pipe(rename('bundled.css'))
+	.pipe(dest(__dirname + '/../static/public/'))
