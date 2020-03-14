@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm run build:css",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "prebuild:css": "rimraf ./static/bundled",
+    "build:css": "node ./build-scripts/build-css.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +24,8 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
