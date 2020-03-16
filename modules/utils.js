@@ -3,7 +3,6 @@ const storage = require('#modules/storage.js')
 const timeReference = storage.getStoredData('./storage/timeReference.json')
 
 module.exports = utils = {
-	orderData: data => data.reverse(),
 	checkDates: data => {
 		const lastDataDate = data[data.length - 1].date
 		const date = utils.createYYYYMMDDobj()
@@ -26,10 +25,6 @@ module.exports = utils = {
 		return (item.length < 2) ? `0${item}` : item
 	},
 	compareValues: (base, value) => value === base,
-	createStartYearDate: () => {
-		const year = new Date().getFullYear()
-		return utils.joinString('-', year, '01', '01')
-	},
 	isMonthCurrentMonth: clickedMonth => {
 		const currentMonth = new Date().getMonth()
 		return (utils.findMonthObjByName(clickedMonth).index === currentMonth)
