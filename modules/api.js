@@ -1,8 +1,12 @@
 require('dotenv').config()
 const fetch = require('node-fetch')
-const cleaner = require('../modules/data.js')
-const storage = require('../modules/storage.js')
-const utils = require('../modules/utils.js')
+// const cleaner = require('../modules/data.js')
+// const storage = require('../modules/storage.js')
+// const utils = require('../modules/utils.js')
+
+const cleaner = require('#modules/data.js')
+const storage = require('#modules/storage.js')
+const utils = require('#modules/utils.js')
 
 
 module.exports = fetcher = {

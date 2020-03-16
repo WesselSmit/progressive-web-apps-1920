@@ -1,8 +1,11 @@
 require('dotenv').config()
 const port = process.env.PORT || 3000
 const express = require('express')
-const route_home = require('./routes/homeRoute.js')
-const route_detail = require('./routes/detailRoute.js')
+// const route_home = require('./routes/homeRoute.js')
+// const route_detail = require('./routes/detailRoute.js')
+
+const route_home = require('#routes/homeRoute.js')
+const route_detail = require('#routes/detailRoute.js')
 
 const app = express()
 

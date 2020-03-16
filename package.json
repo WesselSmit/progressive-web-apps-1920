@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "npm run build:css",
+    "prestart": "link-module-alias && npm run build:css",
     "start": "node index.js",
     "dev": "nodemon index.js",
     "prebuild:css": "rimraf ./static/public",
@@ -24,6 +24,7 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "link-module-alias": "^1.2.0",
     "node-fetch": "^2.6.0",
     "rimraf": "^3.0.2"
   },
@@ -33,5 +34,13 @@
     "gulp-cssimport": "^7.0.0",
     "gulp-rename": "^2.0.0",
     "nodemon": "^2.0.2"
+  },
+  "_moduleAliases": {
+    "#build-scripts": "build-scripts",
+    "#modules": "modules",
+    "#routes": "routes",
+    "#storage": "storage",
+    "#views": "views",
+    "#static": "static"
   }
 }

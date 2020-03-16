@@ -1,6 +1,10 @@
-const storage = require('../modules/storage.js')
-const fetcher = require('../modules/api.js')
-const utils = require('../modules/utils.js')
+// const storage = require('../modules/storage.js')
+// const fetcher = require('../modules/api.js')
+// const utils = require('../modules/utils.js')
+
+const storage = require('#modules/storage.js')
+const fetcher = require('#modules/api.js')
+const utils = require('#modules/utils.js')
 
 module.exports = (req, res) => {
 	if (storage.checkIfFileExists()) {
