@@ -33,7 +33,6 @@ function IDgenerator(data, month) {
 	let index = 0
 
 	data.map(item => {
-		console.log(month + "/" + index)
 		item.id = month + "/" + index
 		index++
 	})
