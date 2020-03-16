@@ -1,0 +1,58 @@
+{
+	"months": [{
+			"name": "January",
+			"index": 0,
+			"days": 31
+		},
+		{
+			"name": "February",
+			"index": 1,
+			"days": 28
+		}, {
+			"name": "March",
+			"index": 2,
+			"days": 31
+		},
+		{
+			"name": "April",
+			"index": 3,
+			"days": 30
+		}, {
+			"name": "May",
+			"index": 4,
+			"days": 31
+		},
+		{
+			"name": "June",
+			"index": 5,
+			"days": 30
+		}, {
+			"name": "July",
+			"index": 6,
+			"days": 31
+		},
+		{
+			"name": "August",
+			"index": 7,
+			"days": 31
+		}, {
+			"name": "September",
+			"index": 8,
+			"days": 30
+		},
+		{
+			"name": "October",
+			"index": 9,
+			"days": 31
+		}, {
+			"name": "November",
+			"index": 10,
+			"days": 30
+		},
+		{
+			"name": "December",
+			"index": 11,
+			"days": 31
+		}
+	]
+}

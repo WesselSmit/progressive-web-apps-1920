@@ -5,17 +5,29 @@ const storage = require('#modules/storage.js')
 const utils = require('#modules/utils.js')
 
 
-module.exports = fetcher = {
-	api: (req, res) => {
-		const start_date = utils.createStartYearDate()
-		const api_key = process.env.api_key
-		const url = `https://api.nasa.gov/planetary/apod?api_key=${api_key}&start_date=${start_date}`
+const api_key = process.env.api_key
+const year = utils.createYYYYMMDDobj().currentYear
+
+module.exports = {
+	nasaAPOD: (req, res, month, current) => {
+		const monthObj = utils.findMonthObjByName(month)
+		const startDate = `${year}-${utils.prefixZero(parseInt(monthObj.index) + 1)}-01`
+
+		let url
+		let endDate
+		if (current) {
+			endDate = `${year}-${utils.prefixZero(parseInt(monthObj.index) + 1)}-${monthObj.days}`
+			url = `https://api.nasa.gov/planetary/apod?api_key=${api_key}&start_date=${startDate}&end_date=${endDate}`
+		} else {
+			const day = utils.createYYYYMMDDobj().currentDay
+			endDate = `${year}-${utils.prefixZero(parseInt(monthObj.index) + 1)}-${utils.prefixZero(day)}`
+			url = `https://api.nasa.gov/planetary/apod?api_key=${api_key}&start_date=${startDate}&end_date=${endDate}`
+		}
 
 		fetch(url)
 			.then(response => response.json())
 			.then(data => cleaner(data))
-			.then(cleanData => utils.orderData(cleanData))
-			.then(orderedData => storage.saveJSON(orderedData))
+			.then(cleanData => storage.saveJSON(cleanData, `./storage/months/${monthObj.name}.json`))
 			.then(data => {
 				res.render("overview", {
 					data
