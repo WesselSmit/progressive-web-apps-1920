@@ -1,11 +1,12 @@
 require('dotenv').config()
 const port = process.env.PORT || 3000
 const express = require('express')
+const app = express()
+
 const route_home = require('#routes/homeRoute.js')
 const route_detail = require('#routes/detailRoute.js')
 const route_month = require('#routes/monthRoute.js')
 const route_back = require('#routes/backRoute.js')
-const app = express()
 
 
 //Set path to static assets folder
