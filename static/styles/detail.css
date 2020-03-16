@@ -23,6 +23,9 @@
 #detail>a:first-of-type>img {
 	object-fit: contain;
 	max-width: 900px;
+	max-height: calc(100vh - 100px);
+	display: block;
+	margin: auto;
 }
 
 #detail>a:last-of-type {
