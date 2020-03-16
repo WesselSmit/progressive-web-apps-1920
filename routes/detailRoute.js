@@ -1,5 +1,3 @@
-// const storage = require('../modules/storage.js')
-
 const storage = require('#modules/storage.js')
 
 module.exports = (req, res) => {
