@@ -9,12 +9,12 @@
 				<img src="<%= data.hdurl %>" title="<%= data.title %>" alt="NASA Astronomy Picture">
 			</a>
 			<a href="/">
-				<img src="../media/images/exit_icon.svg" alt="navigate to overview">
+				<img src="../../media/images/exit_icon.svg" alt="navigate to overview">
 			</a>
 			<h1><%= data.title %></h1>
 			<p><%= data.date %></p>
 			<p><%= data.explanation %></p>
-			<p><%= data.copyright %></p>
+			<p><%= (data.copyright === "public_domain") ? "public domain" : data.copyright %></p>
 		</section>
 	</main>
 </body>

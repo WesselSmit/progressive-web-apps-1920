@@ -1,16 +1,18 @@
 const storage = require('#modules/storage.js')
 
 module.exports = (req, res) => {
+	const month = req.params[0]
 	const id = req.params.id
-	const data = JSON.parse(storage.getStoredData('./storage/data.json'))
+	const data = storage.getStoredData(`./storage/months/${month}.json`)
+	const apod = data[id]
 
-	if (parseInt(id) > data[0].id) {
+	if (parseInt(id) > data.length - 1) {
 		res.render("404", {
 			detail: true
 		})
 	} else {
 		res.render("detail", {
-			data: data[(data.length - 1) - id]
+			data: apod
 		})
 	}
 }

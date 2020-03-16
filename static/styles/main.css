@@ -1,6 +1,6 @@
 @font-face {
 	font-family: NASA;
-	src: url(./media/fonts/nasalization-rg.woff);
+	src: url(../media/fonts/nasalization-rg.woff);
 }
 
 :root {
@@ -9,6 +9,11 @@
 	--highlight-color: #0E5BD8;
 	--primary-color: white;
 	--placeholder-color: #E4E5E7;
+}
+
+
+#overview>div:first-of-type h1 {
+	font-family: var(--title-font), var(--normal-font);
 }
 
 @import 'document.css';

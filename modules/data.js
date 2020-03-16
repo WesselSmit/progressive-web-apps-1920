@@ -1,8 +1,8 @@
-module.exports = data => {
+module.exports = (data, month) => {
 	data = deleteRedundantProps(data)
 	data = filterDataMedia_types(data)
 	data = copyrightGoodDefault(data)
-	data = IDgenerator(data)
+	data = IDgenerator(data, month)
 	return data
 }
 
@@ -29,11 +29,12 @@ function copyrightGoodDefault(data) {
 }
 
 
-function IDgenerator(data) {
+function IDgenerator(data, month) {
 	let index = 0
 
 	data.map(item => {
-		item.id = index
+		console.log(month + "/" + index)
+		item.id = month + "/" + index
 		index++
 	})
 	return data

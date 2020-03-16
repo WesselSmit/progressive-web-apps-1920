@@ -18,7 +18,7 @@ app.set('view engine', 'ejs');
 
 //Routes
 app.get('/', (req, res) => route_home(req, res))
-app.get('/apod/:id', (req, res) => route_detail(req, res))
+app.get('/apod/*/:id', (req, res) => route_detail(req, res))
 app.get('/month/:id', (req, res) => route_month(req, res))
 app.get('/*', (req, res) => res.render("404"))
 
