@@ -25,23 +25,38 @@ self.addEventListener('activate', e => {
 })
 
 self.addEventListener('fetch', e => {
+	const event = e
 	e.respondWith(
 		fetch(e.request)
 		//If a network connection is available => use fetched data || if not => use the cached version
-		.then(res => {
-			const resClone = res.clone() //Clone response
+		.then(res => { //Network succesful
+			const resClone = res.clone() //Clone the response
 			caches
 				.open(cacheName)
 				.then(cache => cache.put(e.request, resClone))
 			return res
 		})
-		// .catch(err => caches.match(e.request).then(res => res))
-		.catch(err => {
-			//If network failed: check if request is in cache => serve cached version || if not in cache => serve '/offline'
-			console.log('het gaat niet goed => de offline page moet geserved worden')
-			const a = await caches.match(e.request)
-			console.log(a)
-			return caches.match('/offline')
-		})
+		// .catch(err => { //Network fails
+		// 	caches.match(e.request).then(matching => {
+		// 		// console.log(matching, event.request, caches.match(event.request))
+
+		// 		// if (matching) {
+		// 		// 	return caches.match(event.request)
+		// 		// } else {
+		// 		// 	caches.match('/offline')
+		// 		// }
+		// 		console.log(caches.match(event.request) || caches.match('/offline'))
+		// 		return matching || caches.match('/offline')
+		// 	})
+		// })
+
+		// .catch(err => caches.match(e.request))
+		//todo: If network failed: check if request is in cache => serve cached version || if not in cache => serve '/offline' (this all happens in the catch())
+		.catch(err => caches.match('/offline')) //Network fails
 	)
 })
+
+
+// return cache.match(request).then(function (matching) {
+// 	return matching || Promise.reject('no-match');
+//   });
