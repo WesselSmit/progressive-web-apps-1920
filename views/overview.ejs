@@ -29,6 +29,15 @@
 	</main>
 
 	<script type="module" src="../scripts/handlers.js"></script>
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () => {
+				navigator.serviceWorker.register('/serviceWorker.js')
+					.then(registration => registration.update())
+					.catch(err => console.log(`ServiceWorker failed registration: ${err}`))
+			})
+		}
+	</script>
 </body>
 
 </html>
