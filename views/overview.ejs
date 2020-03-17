@@ -30,21 +30,9 @@
 
 	<script type="module" src="../scripts/handlers.js"></script>
 	<script>
-		// if ('serviceWorker' in navigator) {
-		// 	window.addEventListener('load', () => {
-		// 		navigator.serviceWorker.register('/serviceWorker.js')
-		// 			.then(registration => {
-		// 				console.log('updating')
-		// 				registration.update()
-		// 			})
-		// 			.catch(err => console.log(`ServiceWorker failed registration: ${err}`))
-		// 		console.log('serviceWorker registered!')
-		// 	})
-		// }
-
 		if ('serviceWorker' in navigator) {
 			window.addEventListener('load', () => {
-				navigator.serviceWorker.register('/serviceWorker1.js')
+				navigator.serviceWorker.register('/serviceWorker.js')
 					.then(registration => {
 						console.log('updating')
 						registration.update()

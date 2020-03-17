@@ -1,0 +1,37 @@
+#offline {
+	background-color: var(--highlight-color);
+	width: 100vw;
+	height: 100vh;
+}
+
+#offline div {
+	width: fit-content;
+	height: fit-content;
+	text-align: center;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+
+#offline h1 {
+	font-family: var(--title-font), var(--normal-font);
+	color: var(--primary-color);
+	font-size: 20vw;
+	letter-spacing: 10px;
+}
+
+#offline h6 {
+	font-family: var(--normal-font);
+	color: var(--primary-color);
+	font-size: 60px;
+	margin: 0px;
+}
+
+#offline p {
+	font-family: var(--normal-font);
+	color: var(--primary-color);
+	font-size: 16px;
+	margin-top: 10px;
+}
