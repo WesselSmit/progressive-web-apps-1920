@@ -23,6 +23,7 @@ app.get('/', route_home)
 app.get('/apod/*/:id', route_detail)
 app.get('/month/:id', route_month)
 app.get('/back', route_back)
+app.get('/offline', (req, res) => res.render("offline"))
 app.get('/*', (req, res) => res.render("404"))
 
 

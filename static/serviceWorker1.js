@@ -1,7 +1,11 @@
 const cacheName = 'cache-v1'
+const cacheAssets = ['/', '/offline', '/public/bundled.css']
 
 self.addEventListener('install', e => {
-	self.skipWaiting() //Use newer version in waiting state if available
+	e.waitUntil(caches.open(cacheName)
+		.then(cache => cache.addAll(cacheAssets))
+		.then(() => self.skipWaiting())
+	)
 })
 
 self.addEventListener('activate', e => {
@@ -31,6 +35,13 @@ self.addEventListener('fetch', e => {
 				.then(cache => cache.put(e.request, resClone))
 			return res
 		})
-		.catch(err => caches.match(e.request).then(res => res))
+		// .catch(err => caches.match(e.request).then(res => res))
+		.catch(err => {
+			//If network failed: check if request is in cache => serve cached version || if not in cache => serve '/offline'
+			console.log('het gaat niet goed => de offline page moet geserved worden')
+			const a = await caches.match(e.request)
+			console.log(a)
+			return caches.match('/offline')
+		})
 	)
 })
