@@ -1,20 +1,9 @@
-const cacheName = 'v1'
-const cacheAssets = [
-	'/',
-	'/public/bundled.css'
-]
+const cacheName = 'dynamic'
 
 self.addEventListener('install', e => {
 	console.log("serviceWorker installed!")
 
-	e.waitUntil(
-		caches.open(cacheName) //Cache files
-		.then(cache => {
-			console.log('caching files!')
-			cache.addAll(cacheAssets)
-		})
-		.then(() => self.skipWaiting()) //Use newer serviceWorker versions if they're available in the 'waiting state'
-	)
+	self.skipWaiting()
 })
 
 self.addEventListener('activate', e => {
@@ -40,6 +29,14 @@ self.addEventListener('fetch', e => {
 	console.log('serviceWorker fetching!')
 
 	e.respondWith(
-		fetch(e.request).catch(() => caches.match(e.request))
+		fetch(e.request)
+		.then(res => {
+			const resClone = res.clone()
+			caches
+				.open(cacheName)
+				.then(cache => cache.put(e.request, resClone))
+			return res
+		})
+		.catch(err => caches.match(e.request).then(res => res))
 	)
 })
