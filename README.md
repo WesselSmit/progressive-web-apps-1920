@@ -41,7 +41,15 @@ Clone the repository from Github
 
 `https://github.com/WesselSmit/progressive-web-apps-1920.git`
 
-Run the application with a code editor or host the source code with a service like github-pages.
+Make sure you have `node.js` and `npm` installed
+
+Install dependencies / node modules 
+
+```shell
+npm install
+```
+
+Run the application in a code editor with `npm start`
 
 # Features
 
