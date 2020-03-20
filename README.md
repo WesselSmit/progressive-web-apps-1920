@@ -1,3 +1,18 @@
+# Feedback
+
+Tot nu toe gaat het best lekker qua PWA, ik vind het dan ook erg leuk om te leren over `node.js`, `express` en `service-workers`.
+
+Ik heb mijn PWA app omgeschreven om de afbeelingen per maand te laten zien ipv alles van het hele jaar, omdat dit de performance heel veel verbeterd. Ik ben dan ook best wel trots op hoe ik dit aangepakt heb.
+
+Tot nu toe is het enige waar ik op dit moment moeite mee heb is dat [mijn service-worker](https://github.com/WesselSmit/progressive-web-apps-1920/blob/master/static/serviceWorker.js) nog niet 100% werkt zoals ik wil; deze probeert een network fetch te doen omdat altijd de meest up-to-date page weergegeven moet worden. Als de network fetch faalt dan moet er gekeken worden of de pagina in de cache bestaat en deze serven, als deze niet in de cache bestaat moet de offline page weergegeven worden. Momenteel loop ik een beetje vast met de check of de page bestaat in de cache.
+
+Ik zou graag feedback willen op:
+* hoe ik ervoor sta qua opdracht & waar de mogelijkheden voor mij liggen qua de `critical render path` verbeteren
+* suggesties over hoe ik mijn service-worker probleem kan oplossen zijn ook welkom
+* andere dingen die je opvallen / tips die je hebt.
+
+
+
 # Table of Contents
 * [Demo](https://nasa-astronomy-pictures.herokuapp.com/)
 * [Assignment](#assignment)
@@ -10,7 +25,8 @@
 * [Credits](#credits)
 * [License](#license)
 
-# HIER MOET EEN SCREENSHOT KOMEN
+![image](https://user-images.githubusercontent.com/45405413/77155918-970fe600-6a9e-11ea-82f0-6019d7531afd.png)
+![image](https://user-images.githubusercontent.com/45405413/77155959-ab53e300-6a9e-11ea-8323-bd32b4b91ad7.png)
 
 # Assignment
 
@@ -116,7 +132,7 @@ The data contains no empty values, but data objects only contain the `copyright`
 
 # Stuff I Want To Do
 
-- [ ] Add pagination based on available months
+- [x] Add pagination based on available months
 
 # Credits
 
