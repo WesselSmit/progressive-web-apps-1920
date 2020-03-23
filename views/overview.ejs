@@ -28,17 +28,13 @@
 		</section>
 	</main>
 
-	<script type="module" src="../scripts/handlers.js"></script>
+	<script type="module" src="../public/optimized.js"></script>
 	<script>
 		if ('serviceWorker' in navigator) {
 			window.addEventListener('load', () => {
 				navigator.serviceWorker.register('/serviceWorker.js')
-					.then(registration => {
-						console.log('updating')
-						registration.update()
-					})
+					.then(registration => registration.update())
 					.catch(err => console.log(`ServiceWorker failed registration: ${err}`))
-				console.log('serviceWorker registered!')
 			})
 		}
 	</script>

@@ -11,7 +11,9 @@ const route_back = require('#routes/backRoute.js')
 
 //Set path to static assets folder
 app.use(express.static('static'))
-
+// app.use('/public', express.static('./public', {
+// 	etag: false
+// }))
 
 //Set template engine & path to template folder
 app.set('views', __dirname + '/views');

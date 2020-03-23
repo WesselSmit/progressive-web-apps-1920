@@ -1,4 +1,7 @@
-export default node => {
+const filterButtons = document.querySelectorAll('#filters label')
+filterButtons.forEach(filterButton => filterButton.addEventListener('click', e => filter(e.target)))
+
+function filter(node) {
 	const filter = node.getAttribute('for')
 	const cards = document.querySelectorAll('[href*="apod"]')
 

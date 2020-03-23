@@ -3,7 +3,7 @@ const {
 	dest
 } = require('gulp')
 const cssImport = require('gulp-cssimport')
-const cleanCSS = require('gulp-clean-css');
+const cleanCSS = require('gulp-clean-css')
 const rename = require('gulp-rename')
 
 return src([__dirname + '/../static/styles/main.css'])
@@ -11,5 +11,5 @@ return src([__dirname + '/../static/styles/main.css'])
 	.pipe(cleanCSS({
 		compatibility: 'ie8'
 	}))
-	.pipe(rename('bundled.css'))
+	.pipe(rename('optimized.css'))
 	.pipe(dest(__dirname + '/../static/public/'))
