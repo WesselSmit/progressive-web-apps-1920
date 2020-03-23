@@ -24,9 +24,6 @@ app.use(minifyHTML({
 		minifyJS: true
 	}
 }))
-// app.use('/public', express.static('./public', {
-// 	etag: false
-// }))
 
 
 //Set template engine & path to template folder
