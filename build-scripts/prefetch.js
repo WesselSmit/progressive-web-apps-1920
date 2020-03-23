@@ -3,6 +3,13 @@ const fetch = require('node-fetch')
 const fs = require('fs')
 const Axios = require('axios')
 const utils = require('#modules/utils.js')
+const {
+	src,
+	dest
+} = require('gulp')
+const imagemin = require("gulp-imagemin")
+const extReplace = require("gulp-ext-replace")
+const webp = require("imagemin-webp")
 
 async function prefetch() {
 	const api_key = process.env.api_key
@@ -14,6 +21,7 @@ async function prefetch() {
 	fetch(url)
 		.then(response => response.json())
 		.then(data => download(data))
+		.then(() => JPGtoWEBP())
 		.catch(err => console.log(`Fetch error: ${err}`))
 }
 prefetch()
@@ -45,4 +53,19 @@ async function download(data) {
 				})
 		}
 	})
+}
+
+
+function JPGtoWEBP() {
+	return src(__dirname + "/../storage/images/**/*.jpg")
+		.pipe(
+			imagemin({
+				verbose: true,
+				plugins: webp({
+					quality: 70
+				})
+			})
+		)
+		.pipe(extReplace(".webp"))
+		.pipe(dest(__dirname + "/../static/images"))
 }
