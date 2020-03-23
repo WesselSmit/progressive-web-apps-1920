@@ -10,7 +10,6 @@ const route_month = require('#routes/monthRoute.js')
 const route_back = require('#routes/backRoute.js')
 
 
-//Set path to static assets folder
 app.use(express.static('static'))
 app.use(minifyHTML({
 	override: true,
