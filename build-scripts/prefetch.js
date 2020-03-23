@@ -21,7 +21,15 @@ async function prefetch() {
 	fetch(url)
 		.then(response => response.json())
 		.then(data => download(data))
-		.then(() => JPGtoWEBP())
+		.then(() => {
+			//todo: dit werkt niet omdat de .then() getriggered word wanneer de function gecomplete is maar dan zijn de JPGs nog niet weggeschreven naar de folder 
+			//todo: --> en dus kan je ze nog niet naar webp converten
+			//TODO: maak hier een while loop die zichzelf elke 100ms aanroept totdat '/storage/images' bestaat en alle images heeft
+			setTimeout(() => {
+				// while(fs.)
+				JPGtoWEBP()
+			}, 5000);
+		})
 		.catch(err => console.log(`Fetch error: ${err}`))
 }
 prefetch()
