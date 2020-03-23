@@ -39,5 +39,9 @@ module.exports = utils = {
 			currentMonths.push(timeReference.months[i].name)
 		}
 		return currentMonths
+	},
+	createStartYearDate: () => {
+		const year = new Date().getFullYear()
+		return utils.joinString('-', year, '01', '01')
 	}
 }

@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prestart": "link-module-alias && npm run build:css && npm run build:js",
+    "prestart": "link-module-alias && npm run build:css && npm run build:js & npm run download",
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "download": "node ./build-scripts/prefetch.js",
     "prebuild:css": "rimraf ./static/public",
     "build:css": "node ./build-scripts/build-css.js",
     "build:js": "node ./build-scripts/build-js.js"
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/WesselSmit/progressive-web-apps-1920#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",

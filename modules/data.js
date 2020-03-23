@@ -7,7 +7,7 @@ module.exports = (data, month) => {
 }
 
 function deleteRedundantProps(data) {
-	const necessaryProperties = ['date', 'hdurl', 'title', 'explanation', 'copyright', 'media_type']
+	const necessaryProperties = ['date', 'url', 'title', 'explanation', 'copyright', 'media_type']
 	data.map(item => {
 		Object.keys(item).map(prop => {
 			if (!necessaryProperties.includes(prop)) {
