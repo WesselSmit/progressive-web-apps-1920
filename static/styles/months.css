@@ -23,3 +23,14 @@
 #monthsOverview a:hover {
 	background-color: rgba(14, 91, 216, .1);
 }
+
+#monthsOverview a:active {
+	background-color: rgba(14, 91, 216, .3);
+}
+
+#monthsOverview .currentMonth,
+#monthsOverview .currentMonth:hover,
+#monthsOverview .currentMonth:active {
+	background-color: var(--highlight-color);
+	color: white;
+}

@@ -32,7 +32,8 @@ module.exports = {
 				const months = utils.monthsOfTheYear()
 				res.render("overview", {
 					data,
-					months
+					months,
+					currMonth: month
 				})
 			})
 			.catch(err => console.log(`Fetch error: ${err}`))

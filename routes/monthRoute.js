@@ -13,7 +13,8 @@ module.exports = (req, res) => {
 			const months = utils.monthsOfTheYear()
 			res.render("overview", {
 				data,
-				months
+				months,
+				currMonth: month
 			})
 		}
 

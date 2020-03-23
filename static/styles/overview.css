@@ -36,6 +36,11 @@
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
+	-ms-overflow-style: none;
+}
+
+#overview>div:last-of-type::-webkit-scrollbar {
+	display: none;
 }
 
 /* Image reflow */

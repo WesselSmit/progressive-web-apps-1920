@@ -12,8 +12,11 @@
 			<div id="monthsOverview">
 				<h3>Months</h3>
 				<% months.forEach(month => { %>
+				<% if (month === currMonth) { %>
+				<a class="currentMonth" href="/month/<%= month %>"><%= month %></a>
+				<% } else { %>
 				<a href="/month/<%= month %>"><%= month %></a>
-				<% }) %>
+				<% } }) %>
 			</div>
 
 			<div>
