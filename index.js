@@ -2,6 +2,7 @@ require('dotenv').config()
 const port = process.env.PORT || 3000
 const express = require('express')
 const app = express()
+const minifyHTML = require('express-minify-html-2')
 
 const route_home = require('#routes/homeRoute.js')
 const route_detail = require('#routes/detailRoute.js')
@@ -11,9 +12,22 @@ const route_back = require('#routes/backRoute.js')
 
 //Set path to static assets folder
 app.use(express.static('static'))
+app.use(minifyHTML({
+	override: true,
+	exception_url: false,
+	htmlMinifier: {
+		removeComments: true,
+		collapseWhitespace: true,
+		collapseBooleanAttributes: true,
+		removeAttributeQuotes: true,
+		removeEmptyAttributes: true,
+		minifyJS: true
+	}
+}))
 // app.use('/public', express.static('./public', {
 // 	etag: false
 // }))
+
 
 //Set template engine & path to template folder
 app.set('views', __dirname + '/views');

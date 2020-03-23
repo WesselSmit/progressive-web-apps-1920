@@ -2,7 +2,8 @@ const cacheName = 'cache-v1'
 const cacheAssets = [
 	'/',
 	'/offline',
-	'/public/bundled.css',
+	'/public/optimized.css',
+	'/public/optimized.js',
 	'/media/fonts.nasalization-rg.woff',
 	'/media/images/exit_icon.svg',
 	'/media/images/favicon.ico',
