@@ -29,8 +29,10 @@ module.exports = {
 			.then(data => cleaner(data, month))
 			.then(cleanData => storage.saveJSON(cleanData, `./storage/months/${monthObj.name}.json`))
 			.then(data => {
+				const months = utils.monthsOfTheYear()
 				res.render("overview", {
-					data
+					data,
+					months
 				})
 			})
 			.catch(err => console.log(`Fetch error: ${err}`))

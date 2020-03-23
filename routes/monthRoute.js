@@ -10,8 +10,10 @@ module.exports = (req, res) => {
 		if (utils.isMonthCurrentMonth(month) && !utils.checkDates(data)) {
 			fetcher.nasaAPOD(req, res, month, false)
 		} else {
+			const months = utils.monthsOfTheYear()
 			res.render("overview", {
-				data
+				data,
+				months
 			})
 		}
 

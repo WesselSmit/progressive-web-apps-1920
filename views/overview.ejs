@@ -3,15 +3,19 @@
 <%- include('head') %>
 
 <body>
-	<a href="/month/January">January</a>
-	<a href="/month/February">February</a>
-	<a href="/month/March">March</a>
-
 
 	<main>
 		<section id="overview">
 			<%- include('header') %>
 			<%- include('user_actions') %>
+
+			<div id="monthsOverview">
+				<h3>Months</h3>
+				<% months.forEach(month => { %>
+				<a href="/month/<%= month %>"><%= month %></a>
+				<% }) %>
+			</div>
+
 			<div>
 				<% if (locals.data) { %>
 				<% data.forEach(item => { %>

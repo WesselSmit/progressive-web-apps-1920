@@ -30,5 +30,14 @@ module.exports = utils = {
 		return (utils.findMonthObjByName(clickedMonth).index === currentMonth)
 	},
 	findMonthObjByName: monthName => timeReference.months.find(month => month.name === monthName),
-	findMonthObjByIndex: monthIndex => timeReference.months[monthIndex]
+	findMonthObjByIndex: monthIndex => timeReference.months[monthIndex],
+	monthsOfTheYear: () => {
+		const now = new Date()
+		const monthIndex = now.getMonth() + 1
+		let currentMonths = []
+		for (let i = 0; i < monthIndex; i++) {
+			currentMonths.push(timeReference.months[i].name)
+		}
+		return currentMonths
+	}
 }

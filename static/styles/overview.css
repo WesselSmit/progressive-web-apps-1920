@@ -25,14 +25,16 @@
 	cursor: default;
 }
 
+/* Overview APOD container */
+
 #overview>div:last-of-type {
-	height: calc(95vh - 130px);
-	max-height: calc(95vh - 130px);
+	height: calc(95vh - 80px);
+	max-height: calc(95vh - 80px);
 	width: 84vw;
-	padding: 0px 8vw 50px 8vw;
+	padding-left: 10px;
 	overflow-y: scroll;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	flex-wrap: wrap;
 }
 

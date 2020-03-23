@@ -14,6 +14,7 @@
 #filters label {
 	cursor: pointer;
 	padding-bottom: 3px;
+	text-transform: capitalize;
 }
 
 #filters label:nth-of-type(2),
