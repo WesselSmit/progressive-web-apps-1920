@@ -21,15 +21,6 @@ async function prefetch() {
 	fetch(url)
 		.then(response => response.json())
 		.then(data => download(data))
-		.then(() => {
-			//todo: dit werkt niet omdat de .then() getriggered word wanneer de function gecomplete is maar dan zijn de JPGs nog niet weggeschreven naar de folder 
-			//todo: --> en dus kan je ze nog niet naar webp converten
-			//TODO: maak hier een while loop die zichzelf elke 100ms aanroept totdat '/storage/images' bestaat en alle images heeft
-			setTimeout(() => {
-				// while(fs.)
-				JPGtoWEBP()
-			}, 5000);
-		})
 		.catch(err => console.log(`Fetch error: ${err}`))
 }
 prefetch()
@@ -51,7 +42,7 @@ async function download(data) {
 
 					return new Promise((resolve, reject) => {
 						res.data.on('end', () => {
-							resolve()
+							resolve(name)
 						})
 
 						res.data.on('error', err =>
@@ -59,21 +50,19 @@ async function download(data) {
 						)
 					})
 				})
+				.then(url => {
+					return src(__dirname + `/../storage/images/${url}`)
+						.pipe(
+							imagemin({
+								verbose: true,
+								plugins: webp({
+									quality: 70
+								})
+							})
+						)
+						.pipe(extReplace(".webp"))
+						.pipe(dest(__dirname + "/../static/images"))
+				})
 		}
 	})
-}
-
-
-function JPGtoWEBP() {
-	return src(__dirname + "/../storage/images/**/*.jpg")
-		.pipe(
-			imagemin({
-				verbose: true,
-				plugins: webp({
-					quality: 70
-				})
-			})
-		)
-		.pipe(extReplace(".webp"))
-		.pipe(dest(__dirname + "/../static/images"))
 }
