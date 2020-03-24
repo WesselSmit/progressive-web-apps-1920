@@ -6,6 +6,3 @@ node_modules
 
 # Ignore evironment variables 
 /.env
-
-# Ignore LICENSE
-LICENSE
