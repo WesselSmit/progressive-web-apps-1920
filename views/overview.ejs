@@ -24,7 +24,7 @@
 				<% data.forEach(item => { %>
 				<a href="/apod/<%= item.id %>" copyright="<%= item.copyright %>">
 					<span>
-						<img src="<%= item.hdurl %>" title="<%= item.title %>" alt="NASA Astronomy Picture">
+						<img src="<%= item.url %>" title="<%= item.title %>" alt="NASA Astronomy Picture">
 						<p><%= item.date %></p>
 					</span>
 				</a>
