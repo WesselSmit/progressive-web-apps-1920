@@ -17,6 +17,12 @@
 	text-transform: capitalize;
 }
 
+#filters label:hover {
+	color: var(--highlight-color);
+	border-bottom: 2px solid var(--highlight-color);
+}
+
+
 #filters label:nth-of-type(2),
 #filters label:last-of-type {
 	margin-left: 10px;
