@@ -6,7 +6,10 @@
 	<main>
 		<section id="detail">
 			<a href="<%= data.url %>" target="_blank">
-				<img src="<%= data.url %>" title="<%= data.title %>" alt="NASA Astronomy Picture">
+				<picture>
+					<source srcset="<%= data.webp %>">
+					<img src="<%= data.jpg %>" title="<%= data.title %>" alt="NASA Astronomy Picture">
+				</picture>
 			</a>
 			<a href="/back">
 				<img src="../../media/images/exit_icon.svg" alt="navigate to overview">

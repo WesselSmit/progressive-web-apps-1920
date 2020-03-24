@@ -15,8 +15,13 @@ function deleteRedundantProps(data) {
 			}
 		})
 		//Replace JPG src's with webp src's (only use this if the images are prefetched, stored & converted to webp format)
-		item.url = item.url.split('/')
-		item.url = '../../images/' + item.url[item.url.length - 1].replace('jpg', 'webp')
+		let webp = item.url.split('/')
+		webp = '/webp/' + webp[webp.length - 1].replace('jpg', 'webp')
+		item.webp = webp
+
+		let jpg = item.url.split('/')
+		jpg = '/jpg/' + jpg[jpg.length - 1]
+		item.jpg = jpg
 	})
 	return data
 }

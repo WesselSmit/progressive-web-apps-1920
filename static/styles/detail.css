@@ -20,6 +20,9 @@
 	align-self: center;
 }
 
+#detail>a:first-of-type>picture,
+#detail>a:first-of-type>picture img,
+#detail>a:first-of-type>picture source,
 #detail>a:first-of-type>img {
 	object-fit: contain;
 	max-width: 900px;

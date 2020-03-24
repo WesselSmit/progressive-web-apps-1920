@@ -67,6 +67,16 @@
 	color: white;
 }
 
+#overview>div:last-of-type span picture,
+#overview>div:last-of-type span picture source {
+	width: 320px;
+	height: 320px;
+	object-fit: cover;
+	cursor: pointer;
+	position: relative;
+	z-index: 3;
+}
+
 #overview>div:last-of-type span img {
 	width: 100%;
 	height: 100%;

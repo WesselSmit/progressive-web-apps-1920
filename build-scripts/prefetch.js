@@ -38,7 +38,7 @@ async function download(data) { //Download images from the API
 					let name = apod.url.split('/')
 					name = name[name.length - 1]
 
-					res.data.pipe(fs.createWriteStream(`./storage/images/${name}`))
+					res.data.pipe(fs.createWriteStream(__dirname + `/../static/jpg/${name}`))
 
 					return new Promise((resolve, reject) => {
 						res.data.on('end', () => {
@@ -51,7 +51,7 @@ async function download(data) { //Download images from the API
 					})
 				}) //Convert every JPG to WEBP format
 				.then(url => {
-					return src(__dirname + `/../storage/images/${url}`)
+					return src(__dirname + `/../static/jpg/${url}`)
 						.pipe(
 							imagemin({
 								verbose: true,
@@ -61,7 +61,7 @@ async function download(data) { //Download images from the API
 							})
 						)
 						.pipe(extReplace(".webp"))
-						.pipe(dest(__dirname + "/../static/images"))
+						.pipe(dest(__dirname + "/../static/webp"))
 				})
 		}
 	})
