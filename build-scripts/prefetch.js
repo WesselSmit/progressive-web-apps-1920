@@ -25,7 +25,7 @@ async function prefetch() {
 }
 prefetch()
 
-async function download(data) {
+async function download(data) { //Download images from the API
 	data.map(apod => {
 		if (apod.media_type === 'image') {
 			//Followed tutorial: https://www.youtube.com/watch?time_continue=393&v=jAJzji5UxnU&feature=emb_logo
@@ -49,7 +49,7 @@ async function download(data) {
 							reject(err)
 						)
 					})
-				})
+				}) //Convert every JPG to WEBP format
 				.then(url => {
 					return src(__dirname + `/../storage/images/${url}`)
 						.pipe(
