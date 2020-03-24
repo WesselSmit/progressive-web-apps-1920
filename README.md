@@ -25,7 +25,7 @@ Ik zou graag feedback willen op:
 * [Credits](#credits)
 * [License](#license)
 
-![image](https://user-images.githubusercontent.com/45405413/77155918-970fe600-6a9e-11ea-82f0-6019d7531afd.png)
+![image](https://user-images.githubusercontent.com/45405413/77421554-5250bb80-6dcc-11ea-9aa2-b8c30c818472.png)
 ![image](https://user-images.githubusercontent.com/45405413/77155959-ab53e300-6a9e-11ea-8323-bd32b4b91ad7.png)
 
 # Assignment
