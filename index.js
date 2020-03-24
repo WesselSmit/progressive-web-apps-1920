@@ -3,6 +3,7 @@ const port = process.env.PORT || 3000
 const express = require('express')
 const app = express()
 const minifyHTML = require('express-minify-html-2')
+const compression = require('compression')
 
 const route_home = require('#routes/homeRoute.js')
 const route_detail = require('#routes/detailRoute.js')
@@ -23,6 +24,7 @@ app.use(minifyHTML({
 		minifyJS: true
 	}
 }))
+app.use(compression())
 
 
 //Set template engine & path to template folder
