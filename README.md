@@ -6,6 +6,7 @@
 * [Concept](#concept)
 * [Optimizations List](#optimizations-list)
 * [Optimizations in Depth](#optimizations-in-depth)
+* [Conclusion](#conclusion)
 * [API](#api)
 * [Todo](#stuff-i-want-to-do)
 * [Known Problems](#known-problems)
@@ -66,6 +67,12 @@ My [WAFS](https://github.com/wesselSmit/web-app-from-scratch-1920) app fetches a
 My WAFS app was incredibly slow; every page had to fetch data from the API & and all the images had external URLs that the browser had to GET. Sometimes the load times were more than a minute on a gooed connection. And this was only January + February. March and all months after that aren't even included.
 
 So with this course I tried to boost the performance by adding new technologes & rewriting my app.
+
+Critical Render Path performance components I boosted:
+
+* Load Responsiveness: how quickly a page can load and execute any required JavaScript code in order for components to respond quickly to user interaction
+* Runtime responsiveness: after page load, how quickly can the page respond to user interaction.
+* Visual stability (prevent image-reflow):do elements on the page shift in ways that users don't expect and potentially interfere with their interactions?
 
 ### 1. Server Side Rendering
 
@@ -211,6 +218,40 @@ Audit Results:
 * **Max potential first input delay** | from `990 ms` to `20 ms`
 
 The website now feels instant.
+
+I mentioned that when I first implemented the SW, the cache size was `660 MB`, now it is `15 MB`
+
+![image](https://user-images.githubusercontent.com/45405413/78030913-1cc74780-7363-11ea-8601-b3a2d3792004.png)
+
+
+# Conclusion
+
+### Learning goals:
+**You understand the difference between client side and server side rendering and you can apply server side rendering in your application**
+
+My applications prefetches the content on the server, here the HTML templates are generated and sent to the clientside. On the clientside is only a bit og script; the copyright-filter! The serviceWorker operates between clientside and serverside (more clientside), if can intervene requests between the two and serve it's own HTML, CSS & JS files or even assets such as images!
+
+
+**You understand how a Service Worker works and you can implement it in your application.**
+
+The serviceWorker operates between clientside and serverside (more clientside), if can intervene requests between the two and serve it's own HTML, CSS & JS files or even assets such as images!
+
+Important assets such as overview-HTML, CSS & clientside JS files are always cached on SW install event to make sure they are available.
+
+My serviceworker always tries the network first, if this fails it'll check if the requested file is in the cache. If it exists in the cache it'll serve the cached file. If it's not in the cache it'll serve the offline page.
+
+
+**You understand how the critical render path works and how you can optimize it for a better runtime and / or perceived performance.**
+
+The critical render path are the steps your application goes through to render content on the website. Most important stages: 
+* Time to first byte | time from user or client making an HTTP request to the first byte of the page being received by the client's browser.`improved by minifying HMTL, CSS & JS files`
+* Time to first meaningful paint | time it takes for the primary content to appear on screen. `async loading of clientside-JS using defer`
+* Time to interactive | time it takes for the content of your webpage to be functional and interactive. (JS loaded) `improved by minifying & concatonating clientside-JS, async loading of clientside-JS using defer`
+* Page load time | time it takes for the content of the webpage to load and stabilise. `improved by minifying HMTL, CSS & JS files, downloading images and replacing external image sources for internal ones`
+
+to interactive
+time to first byte
+time to first meaningful paint
 
 
 # API
